@@ -1,0 +1,23 @@
+{
+  "groups": [
+    {
+      "userAgents": [
+        "*"
+      ],
+      "rules": [
+        {
+          "type": "allow",
+          "value": "/test"
+        },
+        {
+          "type": "allow",
+          "value": "/test/*/hello"
+        },
+        {
+          "type": "disallow",
+          "value": "/*?"
+        }
+      ]
+    }
+  ]
+}

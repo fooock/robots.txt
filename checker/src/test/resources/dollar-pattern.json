@@ -1,0 +1,28 @@
+{
+  "groups": [
+    {
+      "userAgents": [
+        "*"
+      ],
+      "rules": [
+        {
+          "type": "disallow",
+          "value": "/"
+        },
+        {
+          "type": "allow",
+          "value": "/hello/test$"
+        },
+        {
+          "type": "allow",
+          "value": "/hello/*/test$"
+        },
+        {
+          "type": "allow",
+          "value": "*.php$"
+        }
+      ],
+      "delay": 10
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:9.6-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgresql}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      POSTGRES_DB: robotstxt
+      PGDATA: /data/postgres

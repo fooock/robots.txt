@@ -1,0 +1,89 @@
+version: '3'
+
+services:
+  robots-checker:
+    image: robotstxt/checker-api:${IMAGE_TAG}
+    ports:
+      - 127.0.0.1:8080:8080
+    hostname: robots-checker
+    container_name: robots-checker
+    depends_on:
+      - postgresql
+    environment:
+      DATASOURCE_URL: "jdbc:postgresql://postgresql:5432/robotstxt"
+      REDIS_HOST: ${DOCKER_NETWORK}
+
+  robots-crawler:
+    image: robotstxt/crawler-api:${IMAGE_TAG}
+    ports:
+      - 127.0.0.1:8081:8080
+    hostname: robots-crawler
+    container_name: robots-crawler
+    depends_on:
+      - postgresql
+    environment:
+      DATASOURCE_URL: "jdbc:postgresql://postgresql:5432/robotstxt"
+      REDIS_HOST: ${DOCKER_NETWORK}
+
+  robots-downloader-1:
+    image: robotstxt/downloader:${IMAGE_TAG}
+    ports:
+      - 127.0.0.1:8082:8080
+    hostname: robots-downloader-1
+    container_name: robots-downloader-1
+    depends_on:
+      - postgresql
+    environment:
+      DATASOURCE_URL: "jdbc:postgresql://postgresql:5432/robotstxt"
+      REDIS_HOST: ${DOCKER_NETWORK}
+
+  robots-downloader-2:
+    image: robotstxt/downloader:${IMAGE_TAG}
+    ports:
+      - 127.0.0.1:8083:8080
+    hostname: robots-downloader-2
+    container_name: robots-downloader-2
+    depends_on:
+      - postgresql
+    environment:
+      DATASOURCE_URL: "jdbc:postgresql://postgresql:5432/robotstxt"
+      REDIS_HOST: ${DOCKER_NETWORK}
+      STREAM_CONSUMER_NAME: "consumer-2"
+
+  postgresql:
+    image: postgres:9.6-alpine
+    ports:
+      - 127.0.0.1:5432:5432
+    hostname: postgresql
+    container_name: postgresql
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgresql}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      POSTGRES_DB: robotstxt
+
+  prometheus:
+    image: prom/prometheus:v2.11.1
+    ports:
+      - 127.0.0.1:9090:9090
+    hostname: prometheus
+    container_name: prometheus
+    volumes:
+      - ./config:/etc/prometheus
+    command: --config.file=/etc/prometheus/prometheus.yml
+    depends_on:
+      - robots-checker
+      - robots-crawler
+      - robots-downloader-1
+      - robots-downloader-2
+
+  grafana:
+    image: grafana/grafana:6.2.5
+    ports:
+      - 127.0.0.1:3000:3000
+    hostname: grafana
+    container_name: grafana
+    volumes:
+      - ./grafana-data:/var/lib/grafana
+      - ./config/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+    depends_on:
+      - prometheus

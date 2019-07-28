@@ -1,0 +1,88 @@
+Sitemap: https://dzone.com/sitemap.xml
+
+
+User-agent: Mail.Ru
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: *
+Allow: /services/widget/sidebar-content-list/DEFAULT
+Allow: /users/2565080/macfarlanegroup.html
+Allow: /users/2607662/unsecuredloans4u.html
+Allow: /users/ausrob
+Allow: /users/alkampfernablasoft
+Allow: /users/jacobaiden
+Allow: /users/lynndanickel
+Allow: /users/pazkidd
+Allow: /users/russelltodd
+Allow: /users/antonbrusch
+Allow: /users/sheriadkins
+Allow: /users/denisrowley
+Allow: /users/brandonevansy
+Allow: /users/2570541/laurencedelia.html
+Allow: /users/2561691/
+Allow: /users/darinwhite
+Allow: /users/vincentgroch
+Allow: /users/ashodnakashian
+Allow: /users/kirkcain
+Allow: /users/messidawan
+Allow: /users/harrietlanphear
+Allow: /users/2530542/profile.html
+Allow: /users/2554098/shriyameth.html
+Allow: /users/najaolsen
+Allow: /users/punitganshani
+Allow: /users/essaymaxi
+Allow: /users/1395669/Sibeesh+Venu.html
+Allow: /users/2520643/meganwhitney.html
+Allow: /users/janicegarner
+Allow: /users/repocarlistings
+Allow: /users/2560726/kohsamuivillas.html
+Allow: /users/trentbunton
+Allow: /users/Jordanscott
+Allow: /users/jeremylikness
+Allow: /users/maimorroots
+Allow: /users/theronlyman
+Allow: /users/2538523/francesshaffer.html
+Allow: /users/wilbertcarson
+Allow: /users/lesliefrench
+
+Disallow: /accounts/
+Disallow: /users/
+Disallow: /revisions/
+Disallow: /search
+Disallow: /*sort=newest
+Disallow: /*sort=hottest
+Disallow: /*sort=votes
+Disallow: /*filter=
+Disallow: /commands/
+Disallow: /badges/
+Disallow: /comments
+Disallow: /content
+Disallow: /links/source
+Disallow: /links/feed
+Disallow: /links/r
+Disallow: /links/go
+Disallow: /go
+Disallow: /feed
+Disallow: /admin
+Disallow: /dzone/staff
+Disallow: /storage/assets
+Disallow: /answers/*.json
+Disallow: /themes/dz20/scripts/interstitial
+
+User-agent: CCBot
+Crawl-delay: 10
+
+User-agent: Yandex
+Crawl-delay: 10
+
+User-agent: Applebot
+Crawl-delay: 10
+
+User-agent: archive.org_bot
+Crawl-delay: 10
+
+User-agent: ia_archiver
+Crawl-delay: 10

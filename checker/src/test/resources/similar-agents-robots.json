@@ -1,0 +1,41 @@
+{
+  "groups": [
+    {
+      "userAgents": [
+        "googlebot-news"
+      ],
+      "rules": [
+        {
+          "type": "allow",
+          "value": "/"
+        }
+      ]
+    },
+    {
+      "userAgents": [
+        "*"
+      ],
+      "rules": [
+        {
+          "type": "allow",
+          "value": "/test"
+        },
+        {
+          "type": "disallow",
+          "value": "/"
+        }
+      ]
+    },
+    {
+      "userAgents": [
+        "googlebot"
+      ],
+      "rules": [
+        {
+          "type": "disallow",
+          "value": "/"
+        }
+      ]
+    }
+  ]
+}

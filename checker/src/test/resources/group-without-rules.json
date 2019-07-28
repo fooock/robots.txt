@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "userAgents": [
+        "*"
+      ],
+      "rules": [],
+      "delay": 10
+    }
+  ]
+}

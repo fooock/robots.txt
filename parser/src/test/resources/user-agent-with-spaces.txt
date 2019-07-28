@@ -1,0 +1,3 @@
+user-agent: abc def
+allow: /
+disallow: /test

@@ -1,0 +1,39 @@
+{
+  "groups": [
+    {
+      "userAgents": [
+        "googleBot"
+      ],
+      "rules": [
+        {
+          "type": "disallow",
+          "value": "/users/"
+        },
+        {
+          "type": "disallow",
+          "value": "/links/source"
+        }
+      ],
+      "delay": 10
+    },
+    {
+      "userAgents": [
+        "*"
+      ],
+      "rules": [
+        {
+          "type": "allow",
+          "value": "/"
+        },
+        {
+          "type": "disallow",
+          "value": "/users/test"
+        },
+        {
+          "type": "disallow",
+          "value": "/links/admin"
+        }
+      ]
+    }
+  ]
+}

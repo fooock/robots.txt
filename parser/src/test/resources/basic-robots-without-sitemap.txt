@@ -1,0 +1,6 @@
+# Block test comment
+
+user-agent: * # Inline test comment
+allow: /
+disallow: /test/admin.html
+Disallow : /test/budget.php

@@ -1,0 +1,16 @@
+{
+  "groups": [
+    {
+      "userAgents": [
+        "*"
+      ],
+      "rules": [
+        {
+          "type": "allow",
+          "value": "/test"
+        }
+      ],
+      "delay": 10
+    }
+  ]
+}

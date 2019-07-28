@@ -1,0 +1,8 @@
+# Found in https://github.com/python/cpython/blob/master/Lib/test/test_robotparser.py
+User-agent: figtree
+Crawl-delay: 3
+Request-rate: 9/30
+Disallow: /tmp
+Disallow: /a%3cd.html
+Disallow: /a%2fb.html
+Disallow: /%7ejoe/index.html

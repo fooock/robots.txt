@@ -1,0 +1,7 @@
+user-agent: googlebot
+allow: /
+
+user-agent: *
+disallow: /
+
+sitemap: https://example.com/sitemap.xml

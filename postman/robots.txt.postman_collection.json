@@ -1,0 +1,179 @@
+{
+	"info": {
+		"_postman_id": "4d47b0ff-846f-4222-929e-6944603d7158",
+		"name": "robots.txt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "allowed",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/v1/allowed?url={{url}}&agent={{agent}}",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"v1",
+						"allowed"
+					],
+					"query": [
+						{
+							"key": "url",
+							"value": "{{url}}"
+						},
+						{
+							"key": "agent",
+							"value": "{{agent}}"
+						}
+					]
+				},
+				"description": "Check a resource using a GET request"
+			},
+			"response": []
+		},
+		{
+			"name": "allowed",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"url\": \"{{url}}\",\n\t\"agent\": \"{{agent}}\"\n}\n"
+				},
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/v1/allowed",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"v1",
+						"allowed"
+					]
+				},
+				"description": "Check a resource usign a POST request"
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/v1/update",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"v1",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send ",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "url",
+							"value": "{{url}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/v1/send",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"v1",
+						"send"
+					]
+				}
+			},
+			"response": []
+        },
+      {
+        "name": "count",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "{{protocol}}://{{host}}:{{port}}/v1/count",
+            "protocol": "{{protocol}}",
+            "host": [
+              "{{host}}"
+            ],
+            "port": "{{port}}",
+            "path": [
+              "v1",
+              "count"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "find paginated",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "{{protocol}}://{{host}}:{{port}}/v1/all?page=0&size=10",
+            "protocol": "{{protocol}}",
+            "host": [
+              "{{host}}"
+            ],
+            "port": "{{port}}",
+            "path": [
+              "v1",
+              "all"
+            ],
+            "query": [
+              {
+                "key": "page",
+                "value": "0"
+              },
+              {
+                "key": "size",
+                "value": "10"
+              }
+            ]
+          }
+        },
+        "response": []
+		}
+	]
+}

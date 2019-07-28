@@ -1,0 +1,19 @@
+{
+  "groups": [
+    {
+      "userAgents": [
+        "googleBot"
+      ],
+      "rules": [
+        {
+          "type": "disallow",
+          "value": "/"
+        },
+        {
+          "type": "allow",
+          "value": "/"
+        }
+      ]
+    }
+  ]
+}

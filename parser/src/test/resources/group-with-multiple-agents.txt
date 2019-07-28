@@ -1,0 +1,5 @@
+user-agent: a
+user-agent : b
+User-Agent : c
+User-Agent:d
+allow: /

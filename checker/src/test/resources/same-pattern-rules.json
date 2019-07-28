@@ -1,0 +1,19 @@
+{
+  "groups": [
+    {
+      "userAgents": [
+        "*"
+      ],
+      "rules": [
+        {
+          "type": "disallow",
+          "value": "/test/file.html"
+        },
+        {
+          "type": "allow",
+          "value": "/test/file.html"
+        }
+      ]
+    }
+  ]
+}

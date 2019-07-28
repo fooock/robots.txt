@@ -1,0 +1,29 @@
+{
+  "groups": [
+    {
+      "userAgents": [
+        "googleBoT",
+        "*"
+      ],
+      "rules": [
+        {
+          "type": "allow",
+          "value": "/users/pazkidd"
+        },
+        {
+          "type": "allow",
+          "value": "/users/russelltodd"
+        },
+        {
+          "type": "disallow",
+          "value": "/users/"
+        },
+        {
+          "type": "disallow",
+          "value": "/links/source"
+        }
+      ],
+      "delay": 10
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+# From https://github.com/crawler-commons/crawler-commons/blob/master/src/test/resources/robots/format-errors-robots.txt
+User-agent: bot1
+disallow : /whitespace-before-colon/
+disallow /no-colon/
+
+user-agent bot2
+disallow: /no-colon-useragent/
+
+user-agent: bot3
+allow : /whitespace-before-colon
+disallow: /
+sitemap : /sitemap.xml

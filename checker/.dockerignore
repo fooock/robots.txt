@@ -1,0 +1,5 @@
+out/
+build.gradle
+README.md
+build/
+!build/dependency

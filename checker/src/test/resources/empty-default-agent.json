@@ -1,0 +1,16 @@
+{
+  "groups": [
+    {
+      "userAgents": [
+        "googleBoT"
+      ],
+      "rules": [
+        {
+          "type": "disallow",
+          "value": "/"
+        }
+      ],
+      "delay": 10
+    }
+  ]
+}
