@@ -17,7 +17,12 @@ public class AllowData implements Serializable {
 
     @NotEmpty(message = "URL cannot be empty or null")
     private String url;
-
-    @NotEmpty(message = "User agent cannot be null or empty")
     private String agent;
+
+    /**
+     * @return True if agent is not null or empty, false otherwise.
+     */
+    public boolean isAgentValid() {
+        return agent != null && !agent.isEmpty();
+    }
 }
