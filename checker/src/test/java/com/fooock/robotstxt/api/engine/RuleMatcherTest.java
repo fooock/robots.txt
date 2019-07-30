@@ -79,6 +79,8 @@ public class RuleMatcherTest {
         assertFalse(ruleMatcher.canCrawl("*", "/", content));
         assertFalse(ruleMatcher.canCrawl("ab", "/", content));
         assertFalse(ruleMatcher.canCrawl("ab", "/test", content));
+        assertFalse(ruleMatcher.canCrawl("GoogleBot", "", content));
+        assertFalse(ruleMatcher.canCrawl("GoogleBot", null, content));
     }
 
     @Test

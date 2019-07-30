@@ -43,6 +43,9 @@ public class RuleMatcher {
      * @return True if path can be crawled, false otherwise
      */
     public boolean canCrawl(String agent, String path, String rules) {
+        // Fixes #29
+        if (path == null || path.isEmpty()) path = "/";
+
         // if path is /robots.txt then allow always
         if ("/robots.txt".equals(path)) return true;
 
