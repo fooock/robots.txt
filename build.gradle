@@ -7,7 +7,7 @@ plugins {
 
 subprojects {
     group 'com.fooock'
-    version '0.1.0'
+    version '0.1.2'
 
     wrapper {
         distributionType = Wrapper.DistributionType.BIN
