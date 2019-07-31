@@ -234,4 +234,19 @@ public class RuleMatcherTest {
         assertTrue(ruleMatcher.canCrawl("007", "/test?user=javi", content));
         assertTrue(ruleMatcher.canCrawl("007", "/test/allow/this/hello", content));
     }
+
+    @Test
+    public void testCustom1() throws Exception {
+        InputStream stream = this.getClass().getClassLoader().getResourceAsStream("custom-1.json");
+        String content = TestUtils.readFile(stream);
+
+        assertTrue(ruleMatcher.canCrawl("googlebot", "/this-is-a-test.html", content));
+        assertTrue(ruleMatcher.canCrawl("Googlebot/2.1", "/this-is-a-test.html", content));
+        assertTrue(ruleMatcher.canCrawl("googlebot", "/this-is-a-test.html", content));
+        assertTrue(ruleMatcher.canCrawl("AdsBot-Google", "/this-is-a-test.html", content));
+        assertTrue(ruleMatcher.canCrawl("AdsBot-Google-Mobile", "/this-is-a-test.html", content));
+
+        assertFalse(ruleMatcher.canCrawl("voltron", "/this-isnt-allowed?directory=empty", content));
+        assertFalse(ruleMatcher.canCrawl("voltron", "/customer/javi", content));
+    }
 }

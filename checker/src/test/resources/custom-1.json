@@ -1,0 +1,195 @@
+{
+  "sitemaps": [],
+  "groups": [
+    {
+      "userAgents": [
+        "googlebot-image"
+      ],
+      "rules": [
+        {
+          "type": "allow",
+          "value": "/media/catalog/product/"
+        },
+        {
+          "type": "allow",
+          "value": "/media/wysiwyg/"
+        },
+        {
+          "type": "allow",
+          "value": "/media/images/"
+        }
+      ]
+    },
+    {
+      "userAgents": [
+        "*"
+      ],
+      "rules": [
+        {
+          "type": "disallow",
+          "value": "/app/"
+        },
+        {
+          "type": "disallow",
+          "value": "/bin/"
+        },
+        {
+          "type": "disallow",
+          "value": "/dev/"
+        },
+        {
+          "type": "disallow",
+          "value": "/lib/"
+        },
+        {
+          "type": "disallow",
+          "value": "/phpserver/"
+        },
+        {
+          "type": "disallow",
+          "value": "/pkginfo/"
+        },
+        {
+          "type": "disallow",
+          "value": "/report/"
+        },
+        {
+          "type": "disallow",
+          "value": "/setup/"
+        },
+        {
+          "type": "disallow",
+          "value": "/update/"
+        },
+        {
+          "type": "disallow",
+          "value": "/var/"
+        },
+        {
+          "type": "disallow",
+          "value": "/vendor/"
+        },
+        {
+          "type": "disallow",
+          "value": "/composer.json"
+        },
+        {
+          "type": "disallow",
+          "value": "/composer.lock"
+        },
+        {
+          "type": "disallow",
+          "value": "/CONTRIBUTING.md"
+        },
+        {
+          "type": "disallow",
+          "value": "/CONTRIBUTOR_LICENSE_AGREEMENT.html"
+        },
+        {
+          "type": "disallow",
+          "value": "/COPYING.txt"
+        },
+        {
+          "type": "disallow",
+          "value": "/Gruntfile.js"
+        },
+        {
+          "type": "disallow",
+          "value": "/LICENSE.txt"
+        },
+        {
+          "type": "disallow",
+          "value": "/LICENSE_AFL.txt"
+        },
+        {
+          "type": "disallow",
+          "value": "/nginx.conf.sample"
+        },
+        {
+          "type": "disallow",
+          "value": "/package.json"
+        },
+        {
+          "type": "disallow",
+          "value": "/php.ini.sample"
+        },
+        {
+          "type": "disallow",
+          "value": "/RELEASE_NOTES.txt"
+        },
+        {
+          "type": "disallow",
+          "value": "/checkout/"
+        },
+        {
+          "type": "disallow",
+          "value": "/onestepcheckout/"
+        },
+        {
+          "type": "disallow",
+          "value": "/customer/"
+        },
+        {
+          "type": "disallow",
+          "value": "/customer/account/"
+        },
+        {
+          "type": "disallow",
+          "value": "/customer/account/login/"
+        },
+        {
+          "type": "disallow",
+          "value": "/*?dir*"
+        },
+        {
+          "type": "disallow",
+          "value": "/*?dir\u003ddesc"
+        },
+        {
+          "type": "disallow",
+          "value": "/*?dir\u003dasc"
+        },
+        {
+          "type": "disallow",
+          "value": "/*?limit\u003dall"
+        },
+        {
+          "type": "disallow",
+          "value": "/*?mode*"
+        },
+        {
+          "type": "disallow",
+          "value": "/tag/"
+        },
+        {
+          "type": "disallow",
+          "value": "/customize/"
+        },
+        {
+          "type": "disallow",
+          "value": "/sendfriend/"
+        },
+        {
+          "type": "disallow",
+          "value": "/ajax/"
+        },
+        {
+          "type": "disallow",
+          "value": "/sales/guest/form/"
+        },
+        {
+          "type": "disallow",
+          "value": "/review/"
+        },
+        {
+          "type": "disallow",
+          "value": "/quickview/"
+        },
+        {
+          "type": "disallow",
+          "value": "/productalert/"
+        }
+      ]
+    }
+  ]
+}
