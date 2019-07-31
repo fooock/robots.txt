@@ -6,6 +6,7 @@ import com.fooock.robotstxt.database.entity.UrlRecord;
 import com.fooock.robotstxt.database.service.ClusterService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.redis.connection.stream.RecordId;
@@ -87,5 +88,21 @@ public class CrawlerApiService {
         Page<Entry> entries = robotsRepository.findAll(pageRequest);
         log.info("Found {} entries for page {} and page size {}", entries.getTotalElements(), page, size);
         return entries;
+    }
+
+    /**
+     * Try to find the given url in the database and return all related info.
+     *
+     * @param url Url to search for
+     * @return Related url entry info
+     */
+    public Entry findByHost(String url) {
+        try {
+            return robotsRepository.findByHost(url);
+        } catch (EmptyResultDataAccessException e) {
+            log.warn("Url {} doesn't exist in database", url);
+            // if the url not exists in database then return a 404
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Url not found!");
+        }
     }
 }

@@ -63,4 +63,17 @@ public class CrawlApiController {
         log.debug("Called method to retrieve paginated results, from page {} with {} elements", page, size);
         return crawlerApiService.findAllPageable(page, size);
     }
+
+    /**
+     * Retrieve the info associated to the given url from the database if exists. If there is
+     * not match, this method returns a 404 error.
+     *
+     * @param url Url to search for
+     * @return Url entry related info
+     */
+    @GetMapping(value = "find", params = "url")
+    public Entry findByHost(@RequestParam("url") String url) {
+        log.debug("Called method to find host {}", url);
+        return crawlerApiService.findByHost(url);
+    }
 }
