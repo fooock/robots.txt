@@ -31,12 +31,15 @@ public class CrawlApiController {
     }
 
     /**
-     * Try to update expired URLs from database
+     * Try to update expired URLs from database limiting the number of results by
+     * the given size parameter. This field is mandatory.
+     *
+     * @param size Number of results to retrieve
      */
-    @PutMapping("update")
-    public void updateExpired() {
+    @PutMapping(value = "update", params = "size")
+    public void updateExpired(@RequestParam("size") int size) {
         log.debug("Called method to update expired URLs from database");
-        crawlerApiService.updateExpired();
+        crawlerApiService.updateExpired(size);
     }
 
     /**

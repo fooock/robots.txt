@@ -3,6 +3,7 @@ package com.fooock.robotstxt.database
 import com.fooock.robotstxt.database.entity.Entry
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.PagingAndSortingRepository
+import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Repository
 
 /**
@@ -15,10 +16,10 @@ interface RobotsRepository : PagingAndSortingRepository<Entry, Long> {
      * These URLs need to be re-downloaded to check if a new rule was added.
      */
     @Query(
-        "SELECT e.host FROM entries e WHERE cast(now() as date) - cast(e.updated_at as date) > e.age",
+        "SELECT e.host FROM entries e WHERE cast(now() as date) - cast(e.updated_at as date) > e.age LIMIT :size",
         nativeQuery = true
     )
-    fun findNeedToUpdateUrls(): List<String>
+    fun findNeedToUpdateUrls(@Param("size") size: Int): List<String>
 
     /**
      * Search in the database the given URL and returns its current rules

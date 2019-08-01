@@ -51,10 +51,16 @@ public class CrawlerApiService {
     }
 
     /**
-     * Update the expired urls found in the database if any
+     * Update the expired urls found in the database if any. The number of URLs to be updated
+     * are indicated in the given size param. If the given number of results to update is minor
+     * than or equals to 0, the default number of urls to update is used (10).
+     *
+     * @param size Limit the number of results to this number
      */
-    public void updateExpired() {
-        List<String> updateUrls = robotsRepository.findNeedToUpdateUrls();
+    public void updateExpired(int size) {
+        if (size <= 0) size = 10;
+        log.info("Prepared to update {} urls from database", size);
+        List<String> updateUrls = robotsRepository.findNeedToUpdateUrls(size);
         if (updateUrls.isEmpty()) {
             log.info("No urls found to update in database");
             return;
