@@ -12,11 +12,11 @@ import org.springframework.stereotype.Repository
 @Repository
 interface RobotsRepository : PagingAndSortingRepository<Entry, Long> {
     /**
-     * Search in the database URLs that needs to be updated, that is, current_date - updated_at > entry.age.
-     * These URLs need to be re-downloaded to check if a new rule was added.
+     * Search in the database URLs that needs to be updated, that is, current_date - updated_at > entry.age (in days).
+     * These URLs need to be re-downloaded to check if a new rule was added / removed.
      */
     @Query(
-        "SELECT e.host FROM entries e WHERE cast(now() as date) - cast(e.updated_at as date) > e.age LIMIT :size",
+        "SELECT e.host FROM entries e WHERE cast(now() as date) - cast(e.updated_at as date) > ceil(e.age / 24) LIMIT :size",
         nativeQuery = true
     )
     fun findNeedToUpdateUrls(@Param("size") size: Int): List<String>
