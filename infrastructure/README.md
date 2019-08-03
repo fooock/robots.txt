@@ -1,5 +1,7 @@
 # Infra
 
+[![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
+
 This document explains how this project was deployed.
 
 # AWS Lambda
@@ -9,5 +11,5 @@ is executed every hour. To deploy it, create a ``~/.aws/credentials`` with a new
 ``serverless`` and execute the following command to deploy it to AWS:
 
 ```
-$ serverless deploy --aws-profile serverless
+$ serverless deploy --stage dev
 ```
