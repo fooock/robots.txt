@@ -17,3 +17,28 @@ provision/prometheus-node-exporter/remote
 provision/redis/remote
 provision/nginx/remote
 provision/inventory.prod
+
+# Distribution / packaging
+.Python
+*.pyc
+env/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Serverless directories
+.serverless
+secrets.dev.yml
+
+# Node
+node_modules/

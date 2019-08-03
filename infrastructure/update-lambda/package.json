@@ -1,0 +1,11 @@
+{
+  "name": "scheduled-update",
+  "version": "0.1.0",
+  "description": "Update expired URLs from database every hour",
+  "author": "Javi",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "bluebird": "^3.5.5",
+    "serverless-secrets-plugin": "^0.1.0"
+  }
+}

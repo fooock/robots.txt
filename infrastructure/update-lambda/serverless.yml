@@ -1,0 +1,27 @@
+service: update-lambda
+
+frameworkVersion: ">=1.2.0 <2.0.0"
+
+plugins:
+  - serverless-secrets-plugin
+
+provider:
+  name: aws
+  runtime: python3.7
+  stage: dev
+  profile: serverless
+  region: eu-west-2
+
+custom:
+  secrets: ${file(secrets.${opt:stage, self:provider.stage}.yml)}
+
+functions:
+  cron:
+    handler: handler.update_expired
+    # Execute this function every hour
+    events:
+      - schedule: rate(1 hour)
+    # Load environment variables
+    environment:
+      REQUEST_AUTH_HEADER: ${self:custom.secrets.REQUEST_AUTH_HEADER}
+      REQUEST_AUTH_VALUE: ${self:custom.secrets.REQUEST_AUTH_VALUE}
