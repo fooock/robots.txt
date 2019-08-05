@@ -1,6 +1,7 @@
 package com.fooock.robotstxt.downloader.config;
 
 import com.fooock.robotstxt.downloader.handler.ParserResultListener;
+import com.fooock.robotstxt.downloader.interceptor.CrawlerNameHeaderInterceptor;
 import com.fooock.robotstxt.downloader.interceptor.LoggingInterceptor;
 import com.fooock.robotstxt.downloader.interceptor.ResponseErrorInterceptor;
 import com.fooock.robotstxt.parser.BaseParser;
@@ -33,6 +34,7 @@ public class AppConfiguration {
     @Bean
     public OkHttpClient okHttpClient(ParserResultListener resultListener) {
         return new OkHttpClient.Builder()
+                .addInterceptor(new CrawlerNameHeaderInterceptor())
                 .addInterceptor(new ResponseErrorInterceptor(resultListener))
                 .addInterceptor(new LoggingInterceptor())
                 .connectTimeout(15, TimeUnit.SECONDS)
