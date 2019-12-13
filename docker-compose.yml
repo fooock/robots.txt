@@ -60,6 +60,8 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-postgresql}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
       POSTGRES_DB: robotstxt
+    volumes:
+      - ./postgresql-data:/var/lib/postgresql/data
 
   prometheus:
     image: prom/prometheus:v2.11.1
