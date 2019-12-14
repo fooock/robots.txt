@@ -56,7 +56,7 @@ push-all: push-checker push-crawler push-downloader
 #        |_|
 
 start-all: start-redis-cluster build-all
-	+mkdir postgresql-data
+	mkdir -p postgresql-data
 	docker-compose up -d
 
 stop-all:
