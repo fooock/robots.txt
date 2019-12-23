@@ -19,7 +19,7 @@ dependencyManagement {
     imports {
         mavenBom("org.springframework.boot:spring-boot-dependencies:2.1.6.RELEASE") {
             // See: https://youtrack.jetbrains.com/issue/KT-27994#focus=streamItem-27-3148043-0-0
-            bomProperty("kotlin.version", "1.3.41")
+            bomProperty("kotlin.version", "1.3.61")
         }
     }
 }
