@@ -4,7 +4,7 @@ services:
   robots-checker:
     image: robotstxt/checker-api:${IMAGE_TAG}
     ports:
-      - 127.0.0.1:8080:8080
+      - 127.0.0.1:9080:8080
     hostname: robots-checker
     container_name: robots-checker
     depends_on:
@@ -16,7 +16,7 @@ services:
   robots-crawler:
     image: robotstxt/crawler-api:${IMAGE_TAG}
     ports:
-      - 127.0.0.1:8081:8080
+      - 127.0.0.1:9081:8080
     hostname: robots-crawler
     container_name: robots-crawler
     depends_on:
@@ -28,7 +28,7 @@ services:
   robots-downloader-1:
     image: robotstxt/downloader:${IMAGE_TAG}
     ports:
-      - 127.0.0.1:8082:8080
+      - 127.0.0.1:9082:8080
     hostname: robots-downloader-1
     container_name: robots-downloader-1
     depends_on:
@@ -40,7 +40,7 @@ services:
   robots-downloader-2:
     image: robotstxt/downloader:${IMAGE_TAG}
     ports:
-      - 127.0.0.1:8083:8080
+      - 127.0.0.1:9083:8080
     hostname: robots-downloader-2
     container_name: robots-downloader-2
     depends_on:
@@ -60,6 +60,8 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-postgresql}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
       POSTGRES_DB: robotstxt
+    volumes:
+      - ./postgresql-data:/var/lib/postgresql/data
 
   prometheus:
     image: prom/prometheus:v2.11.1

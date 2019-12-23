@@ -12,6 +12,7 @@ setup/redis/*.conf
 setup/redis/*.log
 setup/redis/*.rdb
 
+postgresql-data/
 grafana-data/
 provision/prometheus-node-exporter/remote
 provision/redis/remote
