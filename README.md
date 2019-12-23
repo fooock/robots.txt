@@ -49,7 +49,7 @@ Now you can send some URL's to the crawler system to download the rules found in
 and persist it in the database. For example, you can invoke the crawl API using this command:
 
 ```bash
-$ curl -X POST http://localhost:8081/v1/send \
+$ curl -X POST http://localhost:9081/v1/send \
        -d 'url=https://news.ycombinator.com/newcomments' \
        -H 'Content-Type: application/x-www-form-urlencoded'
 ```
@@ -63,7 +63,7 @@ purpose, you will need to use the checker API. Imagine that you need to check if
 `newest` resource from [hacker news](https://news.ycombinator.com/newest). You will execute:
 
 ```bash
-$ curl -X POST http://localhost:8080/v1/allowed \
+$ curl -X POST http://localhost:9080/v1/allowed \
        -d '{"url": "https://news.ycombinator.com/newest","agent": "AwesomeBot"}' \
        -H 'Content-Type: application/json'
 ```
