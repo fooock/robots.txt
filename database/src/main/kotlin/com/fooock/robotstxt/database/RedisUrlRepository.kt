@@ -1,7 +1,7 @@
 package com.fooock.robotstxt.database
 
 import org.springframework.beans.factory.annotation.Qualifier
-import org.springframework.data.redis.core.StringRedisTemplate
+import org.springframework.data.redis.core.RedisTemplate
 import org.springframework.data.redis.core.ValueOperations
 import org.springframework.stereotype.Repository
 import java.util.concurrent.TimeUnit
@@ -11,7 +11,7 @@ import javax.annotation.PostConstruct
  * Handle redis basic operations under URLs
  */
 @Repository
-class RedisUrlRepository(@Qualifier("redisTemplate") private val redis: StringRedisTemplate) {
+class RedisUrlRepository(@Qualifier("stringRedisTemplate") private val redis: RedisTemplate<String, String>) {
     private var operations: ValueOperations<String, String>? = null
 
     @PostConstruct

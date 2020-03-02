@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service
  *
  */
 @Service
-class ClusterService(@Qualifier("redisTemplate") private val template: RedisTemplate<String, String>) {
+class ClusterService(@Qualifier("stringRedisTemplate") template: RedisTemplate<String, String>) {
     private val operations = template.opsForStream<String, String>()
 
     fun add(key: String, content: Map<String, String>): RecordId? = operations.add(key, content)

@@ -9,9 +9,11 @@ services:
     container_name: robots-checker
     depends_on:
       - postgresql
+      - redis
     environment:
       DATASOURCE_URL: "jdbc:postgresql://postgresql:5432/robotstxt"
-      REDIS_HOST: ${DOCKER_NETWORK}
+      SPRING_REDIS_SENTINEL_MASTER: mymaster
+      SPRING_REDIS_SENTINEL_NODES: redis-sentinel:26379
 
   robots-crawler:
     image: robotstxt/crawler-api:${IMAGE_TAG}
@@ -21,9 +23,11 @@ services:
     container_name: robots-crawler
     depends_on:
       - postgresql
+      - redis
     environment:
       DATASOURCE_URL: "jdbc:postgresql://postgresql:5432/robotstxt"
-      REDIS_HOST: ${DOCKER_NETWORK}
+      SPRING_REDIS_SENTINEL_MASTER: mymaster
+      SPRING_REDIS_SENTINEL_NODES: redis-sentinel:26379
 
   robots-downloader-1:
     image: robotstxt/downloader:${IMAGE_TAG}
@@ -33,9 +37,11 @@ services:
     container_name: robots-downloader-1
     depends_on:
       - postgresql
+      - redis
     environment:
       DATASOURCE_URL: "jdbc:postgresql://postgresql:5432/robotstxt"
-      REDIS_HOST: ${DOCKER_NETWORK}
+      SPRING_REDIS_SENTINEL_MASTER: mymaster
+      SPRING_REDIS_SENTINEL_NODES: redis-sentinel:26379
 
   robots-downloader-2:
     image: robotstxt/downloader:${IMAGE_TAG}
@@ -45,9 +51,11 @@ services:
     container_name: robots-downloader-2
     depends_on:
       - postgresql
+      - redis
     environment:
       DATASOURCE_URL: "jdbc:postgresql://postgresql:5432/robotstxt"
-      REDIS_HOST: ${DOCKER_NETWORK}
+      SPRING_REDIS_SENTINEL_MASTER: mymaster
+      SPRING_REDIS_SENTINEL_NODES: redis-sentinel:26379
       STREAM_CONSUMER_NAME: "consumer-2"
 
   postgresql:
@@ -89,3 +97,19 @@ services:
       - ./config/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
     depends_on:
       - prometheus
+
+  redis:
+    image: bitnami/redis:5.0-debian-10
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - 127.0.0.1:6379:6379
+
+  redis-sentinel:
+    image: bitnami/redis-sentinel:5.0-debian-10
+    environment:
+      - REDIS_MASTER_HOST=redis
+    ports:
+      - 127.0.0.1:26379:26379
+    depends_on:
+      - redis

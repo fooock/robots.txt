@@ -8,17 +8,17 @@ VERSION := 0.1.7
 #
 
 build-checker:
-	./gradlew checker:unpack
+	./gradlew clean checker:unpack
 	docker build --force-rm -t robotstxt/checker-api ./checker
 	docker build --force-rm -t robotstxt/checker-api:$(VERSION) ./checker
 
 build-crawler:
-	./gradlew crawler:unpack
+	./gradlew clean crawler:unpack
 	docker build --force-rm -t robotstxt/crawler-api ./crawler
 	docker build --force-rm -t robotstxt/crawler-api:$(VERSION) ./crawler
 
 build-downloader:
-	./gradlew downloader:unpack
+	./gradlew clean downloader:unpack
 	docker build --force-rm -t robotstxt/downloader ./downloader
 	docker build --force-rm -t robotstxt/downloader:$(VERSION) ./downloader
 
@@ -55,13 +55,12 @@ push-all: push-checker push-crawler push-downloader
 #   \___/| .__/ \___|_|  \__,_|\__|_|\___/|_| |_|___/
 #        |_|
 
-start-all: start-redis-cluster build-all
+start-all: build-all
 	mkdir -p postgresql-data
 	docker-compose up -d
 
 stop-all:
 	docker-compose down --volumes --remove-orphans
-	$(MAKE) -C setup/ stop-redis
 
 logs:
 	docker-compose logs -f

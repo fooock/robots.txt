@@ -1,7 +1,6 @@
 package com.fooock.robotstxt.api.config;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
@@ -23,7 +22,7 @@ public class CacheConfiguration {
     private int entryTtl;
 
     @Bean
-    public RedisCacheManager cacheManager(@Qualifier("connectionFactory") RedisConnectionFactory connection) {
+    public RedisCacheManager cacheManager(RedisConnectionFactory connection) {
         log.debug("Cache TTL is {} minutes", entryTtl);
         RedisCacheConfiguration configuration = RedisCacheConfiguration.defaultCacheConfig()
                 .entryTtl(Duration.ofMinutes(entryTtl))
