@@ -8,12 +8,12 @@ services:
     hostname: robots-checker
     container_name: robots-checker
     depends_on:
-      - postgresql
-      - redis
+      - robots-postgresql
+      - robots-redis
     environment:
-      DATASOURCE_URL: "jdbc:postgresql://postgresql:5432/robotstxt"
+      DATASOURCE_URL: "jdbc:postgresql://robots-postgresql:5432/robotstxt"
       SPRING_REDIS_SENTINEL_MASTER: mymaster
-      SPRING_REDIS_SENTINEL_NODES: redis-sentinel:26379
+      SPRING_REDIS_SENTINEL_NODES: robots-redis-sentinel:26379
 
   robots-crawler:
     image: robotstxt/crawler-api:${IMAGE_TAG}
@@ -22,12 +22,12 @@ services:
     hostname: robots-crawler
     container_name: robots-crawler
     depends_on:
-      - postgresql
-      - redis
+      - robots-postgresql
+      - robots-redis
     environment:
-      DATASOURCE_URL: "jdbc:postgresql://postgresql:5432/robotstxt"
+      DATASOURCE_URL: "jdbc:postgresql://robots-postgresql:5432/robotstxt"
       SPRING_REDIS_SENTINEL_MASTER: mymaster
-      SPRING_REDIS_SENTINEL_NODES: redis-sentinel:26379
+      SPRING_REDIS_SENTINEL_NODES: robots-redis-sentinel:26379
 
   robots-downloader-1:
     image: robotstxt/downloader:${IMAGE_TAG}
@@ -36,12 +36,12 @@ services:
     hostname: robots-downloader-1
     container_name: robots-downloader-1
     depends_on:
-      - postgresql
-      - redis
+      - robots-postgresql
+      - robots-redis
     environment:
-      DATASOURCE_URL: "jdbc:postgresql://postgresql:5432/robotstxt"
+      DATASOURCE_URL: "jdbc:postgresql://robots-postgresql:5432/robotstxt"
       SPRING_REDIS_SENTINEL_MASTER: mymaster
-      SPRING_REDIS_SENTINEL_NODES: redis-sentinel:26379
+      SPRING_REDIS_SENTINEL_NODES: robots-redis-sentinel:26379
 
   robots-downloader-2:
     image: robotstxt/downloader:${IMAGE_TAG}
@@ -50,20 +50,20 @@ services:
     hostname: robots-downloader-2
     container_name: robots-downloader-2
     depends_on:
-      - postgresql
-      - redis
+      - robots-postgresql
+      - robots-redis
     environment:
-      DATASOURCE_URL: "jdbc:postgresql://postgresql:5432/robotstxt"
+      DATASOURCE_URL: "jdbc:postgresql://robots-postgresql:5432/robotstxt"
       SPRING_REDIS_SENTINEL_MASTER: mymaster
-      SPRING_REDIS_SENTINEL_NODES: redis-sentinel:26379
+      SPRING_REDIS_SENTINEL_NODES: robots-redis-sentinel:26379
       STREAM_CONSUMER_NAME: "consumer-2"
 
-  postgresql:
+  robots-postgresql:
     image: postgres:9.6-alpine
     ports:
       - 127.0.0.1:5432:5432
-    hostname: postgresql
-    container_name: postgresql
+    hostname: robots-postgresql
+    container_name: robots-postgresql
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgresql}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
@@ -71,45 +71,22 @@ services:
     volumes:
       - ./postgresql-data:/var/lib/postgresql/data
 
-  prometheus:
-    image: prom/prometheus:v2.11.1
-    ports:
-      - 127.0.0.1:9090:9090
-    hostname: prometheus
-    container_name: prometheus
-    volumes:
-      - ./config:/etc/prometheus
-    command: --config.file=/etc/prometheus/prometheus.yml
-    depends_on:
-      - robots-checker
-      - robots-crawler
-      - robots-downloader-1
-      - robots-downloader-2
-
-  grafana:
-    image: grafana/grafana:6.2.5
-    ports:
-      - 127.0.0.1:3000:3000
-    hostname: grafana
-    container_name: grafana
-    volumes:
-      - ./grafana-data:/var/lib/grafana
-      - ./config/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
-    depends_on:
-      - prometheus
-
-  redis:
+  robots-redis:
     image: bitnami/redis:5.0-debian-10
+    hostname: robots-redis
+    container_name: robots-redis
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     ports:
       - 127.0.0.1:6379:6379
 
-  redis-sentinel:
+  robots-redis-sentinel:
     image: bitnami/redis-sentinel:5.0-debian-10
+    hostname: robots-redis-sentinel
+    container_name: robots-redis-sentinel
     environment:
-      - REDIS_MASTER_HOST=redis
+      - REDIS_MASTER_HOST=robots-redis
     ports:
       - 127.0.0.1:26379:26379
     depends_on:
-      - redis
+      - robots-redis
