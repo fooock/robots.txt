@@ -56,7 +56,6 @@ push-all: push-checker push-crawler push-downloader
 #        |_|
 
 start-all: build-all
-	mkdir -p postgresql-data
 	docker-compose up -d
 	# Add time to create redis containers and create streams
 	sleep 5
@@ -66,7 +65,7 @@ start-all: build-all
 	docker exec -it robots-redis redis-cli xgroup create update group-2 $$ mkstream
 
 stop-all:
-	docker-compose down --volumes --remove-orphans
+	docker-compose down
 
 logs:
 	docker-compose logs -f

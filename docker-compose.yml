@@ -73,7 +73,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
       POSTGRES_DB: robotstxt
     volumes:
-      - ./postgresql-data:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data
     restart: on-failure
 
   robots-redis:
@@ -98,12 +98,10 @@ services:
       - 127.0.0.1:26379:26379
     depends_on:
       - robots-redis
-    volumes:
-      - redis-sentinel-data:/bitnami
     restart: on-failure
 
 volumes:
-  redis-sentinel-data:
-    driver: local
   redis-data:
+    driver: local
+  postgres-data:
     driver: local
