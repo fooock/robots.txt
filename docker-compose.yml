@@ -79,6 +79,8 @@ services:
       - ALLOW_EMPTY_PASSWORD=yes
     ports:
       - 127.0.0.1:6379:6379
+    volumes:
+      - redis-data:/bitnami
 
   robots-redis-sentinel:
     image: bitnami/redis-sentinel:5.0-debian-10
@@ -90,3 +92,11 @@ services:
       - 127.0.0.1:26379:26379
     depends_on:
       - robots-redis
+    volumes:
+      - redis-sentinel-data:/bitnami
+
+volumes:
+  redis-sentinel-data:
+    driver: local
+  redis-data:
+    driver: local

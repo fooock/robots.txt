@@ -58,6 +58,12 @@ push-all: push-checker push-crawler push-downloader
 start-all: build-all
 	mkdir -p postgresql-data
 	docker-compose up -d
+	# Add time to create redis containers and create streams
+	sleep 5
+	docker exec -it robots-redis redis-cli xgroup create income group-1 $$ mkstream
+	docker exec -it robots-redis redis-cli xgroup create income group-2 $$ mkstream
+	docker exec -it robots-redis redis-cli xgroup create update group-1 $$ mkstream
+	docker exec -it robots-redis redis-cli xgroup create update group-2 $$ mkstream
 
 stop-all:
 	docker-compose down --volumes --remove-orphans
