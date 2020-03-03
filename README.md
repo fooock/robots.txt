@@ -10,7 +10,7 @@ a distributed web crawler and you want to be **polite** in your action, then you
 this project very useful. Also, this project can be used to integrate into any *SEO* tool to check if 
 the content is being indexed correctly by robots.
 
->For this first version, we are trying to comply with the specification used by Google to analyze websites. You can see it [here](https://developers.google.com/search/reference/robots_txt?hl=en).
+>:exclamation: For this first version, we are trying to comply with the specification used by Google to analyze websites. You can see it [here](https://developers.google.com/search/reference/robots_txt?hl=en).
 Expect support from other robot specifications soon!
 
 ## Why this project?
@@ -24,7 +24,6 @@ can help by acting as a service to check if a given url resource can be crawled 
 
 In order to build this project in your machine you will need to have installed in your system:
 
-* [Redis 5](https://redis.io/topics/quickstart), including `redis-cli` and `redis-server`
 * `Java 8` and [Kotlin](https://kotlinlang.org/docs/tutorials/command-line.html)
 * [Docker](https://docs.docker.com/install/)
 * [docker-compose](https://docs.docker.com/compose/install/)
@@ -36,8 +35,7 @@ If you want to test this project locally, then you will need to be installed in 
 [docker-compose](https://docs.docker.com/compose/install/) and `Make`. When done, then execute the following
 command to compile all projects, build docker images and run it:
 
->:point_right: Change the `DOCKER_NETWORK` environment variable from [`.env`](.env) file to match
-you docker host interface
+>:point_right: Be patient! It will compile and start all containers from scratch.
 
 ```bash
 $ make start-all
@@ -53,7 +51,8 @@ $ curl -X POST http://localhost:9081/v1/send \
        -d 'url=https://news.ycombinator.com/newcomments' \
        -H 'Content-Type: application/x-www-form-urlencoded'
 ```
->Also, there is another method in the API to make a crawl request but using a `GET` method.
+>Also, there is another method in the API to make a crawl request but using a `GET` method. If you want to check 
+>all methods this application expose, import this [Postman collection](postman/robots.txt.postman_collection.json).
 
 This command will send the URL to the streaming service, and when received, the `robots.txt` file
 will be downloaded, parsed and saved into the database.
@@ -80,13 +79,10 @@ The response will be:
 
 This is like saying: *Hey!, you can crawl content from `https://news.ycombinator.com/newest`*
 
-When you finish your test, execute the next command to stop and remove all docker containers and 
-associated volumes:
+When you finish your test, execute the next command to stop and remove all docker containers:
 
 ```bash
 $ make stop-all
 ```
 
->If you want to start hacking, stop all containers and use the instructions from [this directory](setup) to start all
-project required services
-
+>:fire: Happy Hacking! :fire:
