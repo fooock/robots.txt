@@ -10,7 +10,7 @@ a distributed web crawler and you want to be **polite** in your action, then you
 this project very useful. Also, this project can be used to integrate into any *SEO* tool to check if 
 the content is being indexed correctly by robots.
 
->:exclamation: For this first version, we are trying to comply with the specification used by Google to analyze websites. You can see it [here](https://developers.google.com/search/reference/robots_txt?hl=en).
+>For this first version, we are trying to comply with the specification used by Google to analyze websites. You can see it [here](https://developers.google.com/search/reference/robots_txt?hl=en).
 Expect support from other robot specifications soon!
 
 ## Why this project?
@@ -35,7 +35,7 @@ If you want to test this project locally, then you will need to be installed in 
 [docker-compose](https://docs.docker.com/compose/install/) and `Make`. When done, then execute the following
 command to compile all projects, build docker images and run it:
 
->:point_right: Be patient! It will compile and start all containers from scratch.
+>:point_right: Be patient!
 
 ```bash
 $ make start-all
