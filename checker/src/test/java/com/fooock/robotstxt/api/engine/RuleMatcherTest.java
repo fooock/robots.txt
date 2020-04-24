@@ -249,4 +249,14 @@ public class RuleMatcherTest {
         assertFalse(ruleMatcher.canCrawl("voltron", "/this-isnt-allowed?directory=empty", content));
         assertFalse(ruleMatcher.canCrawl("voltron", "/customer/javi", content));
     }
+
+    @Test
+    public void testFixIssue33() throws Exception {
+        InputStream stream = this.getClass().getClassLoader().getResourceAsStream("comparison-violates-contract.json");
+        String content = TestUtils.readFile(stream);
+
+        assertTrue(ruleMatcher.canCrawl("googlebot", "/", content));
+        assertTrue(ruleMatcher.canCrawl("curl/7.2.1", "/modules/hello-world.js", content));
+        assertFalse(ruleMatcher.canCrawl("httpie/1.2.3", "/modules/not-allowed", content));
+    }
 }

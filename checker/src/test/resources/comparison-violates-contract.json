@@ -1,0 +1,298 @@
+{
+  "groups": [
+    {
+      "delay": 10.0,
+      "rules": [
+        {
+          "type": "allow",
+          "value": "/misc/*.css$"
+        },
+        {
+          "type": "allow",
+          "value": "/misc/*.css?"
+        },
+        {
+          "type": "allow",
+          "value": "/misc/*.js$"
+        },
+        {
+          "type": "allow",
+          "value": "/misc/*.js?"
+        },
+        {
+          "type": "allow",
+          "value": "/misc/*.gif"
+        },
+        {
+          "type": "allow",
+          "value": "/misc/*.jpg"
+        },
+        {
+          "type": "allow",
+          "value": "/misc/*.jpeg"
+        },
+        {
+          "type": "allow",
+          "value": "/misc/*.png"
+        },
+        {
+          "type": "allow",
+          "value": "/modules/*.css$"
+        },
+        {
+          "type": "allow",
+          "value": "/modules/*.css?"
+        },
+        {
+          "type": "allow",
+          "value": "/modules/*.js$"
+        },
+        {
+          "type": "allow",
+          "value": "/modules/*.js?"
+        },
+        {
+          "type": "allow",
+          "value": "/modules/*.gif"
+        },
+        {
+          "type": "allow",
+          "value": "/modules/*.jpg"
+        },
+        {
+          "type": "allow",
+          "value": "/modules/*.jpeg"
+        },
+        {
+          "type": "allow",
+          "value": "/modules/*.png"
+        },
+        {
+          "type": "allow",
+          "value": "/profiles/*.css$"
+        },
+        {
+          "type": "allow",
+          "value": "/profiles/*.css?"
+        },
+        {
+          "type": "allow",
+          "value": "/profiles/*.js$"
+        },
+        {
+          "type": "allow",
+          "value": "/profiles/*.js?"
+        },
+        {
+          "type": "allow",
+          "value": "/profiles/*.gif"
+        },
+        {
+          "type": "allow",
+          "value": "/profiles/*.jpg"
+        },
+        {
+          "type": "allow",
+          "value": "/profiles/*.jpeg"
+        },
+        {
+          "type": "allow",
+          "value": "/profiles/*.png"
+        },
+        {
+          "type": "allow",
+          "value": "/themes/*.css$"
+        },
+        {
+          "type": "allow",
+          "value": "/themes/*.css?"
+        },
+        {
+          "type": "allow",
+          "value": "/themes/*.js$"
+        },
+        {
+          "type": "allow",
+          "value": "/themes/*.js?"
+        },
+        {
+          "type": "allow",
+          "value": "/themes/*.gif"
+        },
+        {
+          "type": "allow",
+          "value": "/themes/*.jpg"
+        },
+        {
+          "type": "allow",
+          "value": "/themes/*.jpeg"
+        },
+        {
+          "type": "allow",
+          "value": "/themes/*.png"
+        },
+        {
+          "type": "disallow",
+          "value": "/includes/"
+        },
+        {
+          "type": "disallow",
+          "value": "/misc/"
+        },
+        {
+          "type": "disallow",
+          "value": "/modules/"
+        },
+        {
+          "type": "disallow",
+          "value": "/profiles/"
+        },
+        {
+          "type": "disallow",
+          "value": "/scripts/"
+        },
+        {
+          "type": "disallow",
+          "value": "/themes/"
+        },
+        {
+          "type": "disallow",
+          "value": "/CHANGELOG.txt"
+        },
+        {
+          "type": "disallow",
+          "value": "/cron.php"
+        },
+        {
+          "type": "disallow",
+          "value": "/INSTALL.mysql.txt"
+        },
+        {
+          "type": "disallow",
+          "value": "/INSTALL.pgsql.txt"
+        },
+        {
+          "type": "disallow",
+          "value": "/INSTALL.sqlite.txt"
+        },
+        {
+          "type": "disallow",
+          "value": "/install.php"
+        },
+        {
+          "type": "disallow",
+          "value": "/INSTALL.txt"
+        },
+        {
+          "type": "disallow",
+          "value": "/LICENSE.txt"
+        },
+        {
+          "type": "disallow",
+          "value": "/MAINTAINERS.txt"
+        },
+        {
+          "type": "disallow",
+          "value": "/update.php"
+        },
+        {
+          "type": "disallow",
+          "value": "/UPGRADE.txt"
+        },
+        {
+          "type": "disallow",
+          "value": "/xmlrpc.php"
+        },
+        {
+          "type": "disallow",
+          "value": "/admin/"
+        },
+        {
+          "type": "disallow",
+          "value": "/comment/reply/"
+        },
+        {
+          "type": "disallow",
+          "value": "/filter/tips/"
+        },
+        {
+          "type": "disallow",
+          "value": "/node/add/"
+        },
+        {
+          "type": "disallow",
+          "value": "/search/"
+        },
+        {
+          "type": "disallow",
+          "value": "/user/register/"
+        },
+        {
+          "type": "disallow",
+          "value": "/user/password/"
+        },
+        {
+          "type": "disallow",
+          "value": "/user/login/"
+        },
+        {
+          "type": "disallow",
+          "value": "/user/logout/"
+        },
+        {
+          "type": "disallow",
+          "value": "/?q=admin/"
+        },
+        {
+          "type": "disallow",
+          "value": "/?q=comment/reply/"
+        },
+        {
+          "type": "disallow",
+          "value": "/?q=filter/tips/"
+        },
+        {
+          "type": "disallow",
+          "value": "/?q=node/add/"
+        },
+        {
+          "type": "disallow",
+          "value": "/?q=search/"
+        },
+        {
+          "type": "disallow",
+          "value": "/?q=user/password/"
+        },
+        {
+          "type": "disallow",
+          "value": "/?q=user/register/"
+        },
+        {
+          "type": "disallow",
+          "value": "/?q=user/login/"
+        },
+        {
+          "type": "disallow",
+          "value": "/?q=user/logout/"
+        },
+        {
+          "type": "disallow",
+          "value": "/page-section/"
+        },
+        {
+          "type": "disallow",
+          "value": "*.staging.usi.ch"
+        },
+        {
+          "type": "disallow",
+          "value": "*/node/"
+        }
+      ],
+      "userAgents": [
+        "*"
+      ]
+    }
+  ],
+  "sitemaps": [
+  ]
+}

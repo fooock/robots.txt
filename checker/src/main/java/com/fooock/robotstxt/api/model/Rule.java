@@ -3,6 +3,8 @@ package com.fooock.robotstxt.api.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Comparator;
+
 /**
  *
  */
@@ -14,11 +16,16 @@ public class Rule implements Comparable<Rule> {
 
     @Override
     public int compareTo(Rule o) {
-        if (value.length() > o.value.length()) return -1;
-        if (value.length() < o.value.length()) return 1;
-
-        // If rules are equals, then the precedence is for the
-        // allow rule always
-        return "allow".equals(type) ? -1 : 1;
+        // First we sort by type of rules: allow > disallow
+        // Second is to sort rules by length, longest first
+        // Third, if there is two equal rules but one ends with ? and the other ends with $, the precedence makes
+        // the rule that ends with ? first.
+        return Comparator.comparing(Rule::getType)
+                .thenComparingInt(rule -> Integer.compare(o.getValue().length(), rule.getValue().length()))
+                .thenComparing((rule, t1) -> {
+                    if (rule.getValue().equals(t1.getValue())) return 0;
+                    return rule.getValue().endsWith("?") ? -1 : 1;
+                })
+                .compare(this, o);
     }
 }
