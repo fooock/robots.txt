@@ -3,10 +3,10 @@
 [![License](https://img.shields.io/badge/License-GPLv3%202.0-brightgreen.svg?style=for-the-badge)](https://www.gnu.org/licenses/gpl-3.0)
 ![Twitter Follow](https://img.shields.io/twitter/follow/robotstxt_?color=blue&label=twitter&logo=twitter&style=for-the-badge)
 
->:construction: Project in early development
+>:construction: Project in development
 
 Distributed *robots.txt* parser and rule checker through API access. If you are working on
-a distributed web crawler and you want to be **polite** in your action, then you will find
+a distributed web crawler, and you want to be **polite** in your action, then you will find
 this project very useful. Also, this project can be used to integrate into any *SEO* tool to check if 
 the content is being indexed correctly by robots.
 
@@ -24,7 +24,7 @@ can help by acting as a service to check if a given url resource can be crawled 
 
 In order to build this project in your machine you will need to have installed in your system:
 
-* `Java 8` and [Kotlin](https://kotlinlang.org/docs/tutorials/command-line.html)
+* `Java 11` and [Kotlin](https://kotlinlang.org/docs/tutorials/command-line.html)
 * [Docker](https://docs.docker.com/install/)
 * [docker-compose](https://docs.docker.com/compose/install/)
 * `make`
