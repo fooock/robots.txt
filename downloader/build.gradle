@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.1.6.RELEASE'
+    id 'org.springframework.boot' version '2.4.0'
     id 'java'
 }
 
@@ -21,12 +21,12 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation "org.springframework.data:spring-data-redis:2.2.0.M2"
-    implementation "io.lettuce:lettuce-core:5.1.7.RELEASE"
+    implementation "org.springframework.data:spring-data-redis:2.4.1"
+    implementation "io.lettuce:lettuce-core:6.0.1.RELEASE"
     implementation "org.springframework.boot:spring-boot-starter-data-jpa"
-    implementation 'com.squareup.okhttp3:okhttp:4.0.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
     implementation "org.springframework.boot:spring-boot-starter-actuator"
-    implementation "io.micrometer:micrometer-registry-prometheus:1.2.0"
+    implementation "io.micrometer:micrometer-registry-prometheus:1.6.1"
 
     compile project(':parser')
     compile project(':database')
@@ -36,6 +36,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'junit:junit:4.12'
 }
 
 task unpack(type: Copy) {

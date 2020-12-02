@@ -1,4 +1,4 @@
-VERSION := 0.1.7
+VERSION := 0.1.8
 
 #   _           _ _     _
 #  | |__  _   _(_) | __| |
@@ -8,17 +8,17 @@ VERSION := 0.1.7
 #
 
 build-checker:
-	./gradlew clean checker:unpack
+	./gradlew checker:unpack
 	docker build --force-rm -t robotstxt/checker-api ./checker
 	docker build --force-rm -t robotstxt/checker-api:$(VERSION) ./checker
 
 build-crawler:
-	./gradlew clean crawler:unpack
+	./gradlew crawler:unpack
 	docker build --force-rm -t robotstxt/crawler-api ./crawler
 	docker build --force-rm -t robotstxt/crawler-api:$(VERSION) ./crawler
 
 build-downloader:
-	./gradlew clean downloader:unpack
+	./gradlew downloader:unpack
 	docker build --force-rm -t robotstxt/downloader ./downloader
 	docker build --force-rm -t robotstxt/downloader:$(VERSION) ./downloader
 
